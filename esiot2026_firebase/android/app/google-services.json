@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "281689992147",
+    "firebase_url": "https://iot2026-2a-default-rtdb.firebaseio.com",
+    "project_id": "iot2026-2a",
+    "storage_bucket": "iot2026-2a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281689992147:android:e9b360ea0781bd7cea9d26",
+        "android_client_info": {
+          "package_name": "com.example.esiot2026_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxdM8kTsWTO9Z60pI2q-lo0g0xeZYoLnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281689992147:android:b711c64ee21fd085ea9d26",
+        "android_client_info": {
+          "package_name": "com.polines.appiot1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxdM8kTsWTO9Z60pI2q-lo0g0xeZYoLnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
