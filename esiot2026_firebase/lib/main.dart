@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
 
-// Set kedua nilai ini ke akun yang sudah dibuat pada Firebase Authentication.
-const String firebaseEmail = 'GANTI_DENGAN_EMAIL';
-const String firebasePassword = 'GANTI_DENGAN_PASSWORD';
+// Berikan kredensial lewat --dart-define saat menjalankan atau membangun aplikasi.
+const String firebaseEmail = String.fromEnvironment('FIREBASE_EMAIL');
+const String firebasePassword = String.fromEnvironment('FIREBASE_PASSWORD');
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,11 +50,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Future<void> _authenticate() async {
-    if (firebaseEmail == 'GANTI_DENGAN_EMAIL' ||
-        firebasePassword == 'GANTI_DENGAN_PASSWORD') {
-      setState(
-        () => _authError = 'Atur firebaseEmail dan firebasePassword di lib/main.dart dengan akun Firebase Authentication.',
-      );
+    if (firebaseEmail.isEmpty || firebasePassword.isEmpty) {
+      setState(() => _authError =
+          'Berikan akun Firebase Authentication lewat --dart-define atau --dart-define-from-file saat menjalankan aplikasi.');
       return;
     }
     try {

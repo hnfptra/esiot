@@ -6,7 +6,7 @@ Aplikasi Android berbasis Flutter untuk melihat nilai suhu dan kelembapan secara
 
 ## 2. Fitur inti
 
-- **Autentikasi otomatis:** aplikasi login menggunakan Firebase Authentication metode Email/Password. Kredensial diatur sebagai konstanta `firebaseEmail` dan `firebasePassword` pada `lib/main.dart`; tidak ada form login. Aplikasi tidak membuat akun secara otomatis. Kredensial harus menunjuk akun yang telah dibuat dan diaktifkan pada Firebase Console.
+- **Autentikasi otomatis:** aplikasi login menggunakan Firebase Authentication metode Email/Password. Kredensial diterima melalui compile-time defines `FIREBASE_EMAIL` dan `FIREBASE_PASSWORD`; tidak ada form login. Aplikasi tidak membuat akun secara otomatis. Kredensial harus menunjuk akun yang telah dibuat dan diaktifkan pada Firebase Console.
 - **Pemantauan sensor:** listener RTDB menampilkan `suhu` dalam °C dan `kelembapan` dalam %. Perubahan nilai ditampilkan tanpa refresh manual.
 - **Kontrol LED:** status LED dibaca secara live. Tombol mengubah nilai 0 menjadi 1 (hidup), atau 1 menjadi 0 (mati), lalu menulis nilai integer ke RTDB. Tombol tidak aktif sebelum nilai status tersedia atau saat penulisan berlangsung.
 - **Status kesalahan:** layar menampilkan langkah pemulihan untuk kegagalan autentikasi; error pembacaan dan penulisan ditampilkan pada dashboard.
@@ -14,7 +14,7 @@ Aplikasi Android berbasis Flutter untuk melihat nilai suhu dan kelembapan secara
 ## 3. Alur pengguna
 
 1. Aplikasi menginisialisasi Flutter binding dan Firebase dengan konfigurasi platform Android.
-2. Aplikasi mencoba login dengan kredensial yang didefinisikan di `main.dart`.
+2. Aplikasi mencoba login dengan kredensial yang diteruskan saat build/run.
 3. Jika login gagal atau konstanta belum diisi, dashboard data tidak dibuka; pesan kesalahan dan tombol coba lagi ditampilkan.
 4. Setelah login berhasil, listener membaca `/esiot-db/sensor` dan `/esiot-db/kontrol/led`.
 5. User melihat kartu suhu/kelembapan dan status LED. Tekan tombol LED untuk menulis nilai kebalikan dari status terakhir yang diterima.
@@ -58,7 +58,7 @@ Rule yang diberikan mengharuskan pengguna terautentikasi untuk membaca dan menul
 ```
 
 1. Aktifkan metode Email/Password di Firebase Authentication dan buat akun operasional.
-2. Ganti konstanta `firebaseEmail` dan `firebasePassword` pada `lib/main.dart` dengan kredensial akun tersebut.
+2. Buat `firebase_secrets.json` berdasarkan `firebase_secrets.example.json`, lalu isi kredensial akun. File rahasia tersebut dikecualikan dari Git. Jalankan aplikasi dengan `flutter run --dart-define-from-file=../firebase_secrets.json` dari direktori `esiot2026_firebase`.
 3. Konstanta yang ditanam di aplikasi dapat diekstrak dari paket APK; gunakan akun berhak minimum dan aturan keamanan RTDB yang lebih rinci untuk distribusi produksi. Autentikasi membuktikan identitas akun, sementara rule di atas memberi setiap akun terautentikasi akses baca/tulis ke seluruh node `esiot-db`.
 4. File `google-services.json` Android dan `firebase_options.dart` harus menunjuk ke project Firebase/RTDB yang sama.
 

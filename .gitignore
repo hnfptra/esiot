@@ -3,3 +3,4 @@
 **/.idea/
 **/.gradle/
 **/.pub-cache/
+firebase_secrets.json
