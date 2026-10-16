@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "164275070503",
+    "firebase_url": "https://esiot2026-9d3e9-default-rtdb.firebaseio.com",
+    "project_id": "esiot2026-9d3e9",
+    "storage_bucket": "esiot2026-9d3e9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164275070503:android:afca401820abdf95965002",
+        "android_client_info": {
+          "package_name": "com.example.esp32firebaseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2JCgH_q7g01w8KjkiK7ahOtTtmtKe8Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
